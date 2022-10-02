@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/emadaldin-baybars/paymob-nodejs/issues"
   },
-  "homepage": "https://github.com/emadaldin-baybars/paymob-nodejs#readme"
+  "homepage": "https://github.com/emadaldin-baybars/paymob-nodejs#readme",
+  "engines": {
+    "node": ">= 9.0.0"
+  }
 }
