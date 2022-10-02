@@ -1,10 +1,10 @@
 const fs = require('fs');
 const axios = require('axios').default;
 
-async function readConfigFile(path= '') {
+function readConfigFile(path= '') {
     const _p = path || "./paymob-config.json";
     console.log('_p', _p)
-    await fs.readFile(_p , "utf8", (err, jsonString) => {
+    fs.readFile(_p , "utf8", (err, jsonString) => {
         console.log('jsonString', jsonString)
         if (err) {
             console.log("Error reading file from disk:", err);
