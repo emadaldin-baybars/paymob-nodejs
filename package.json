@@ -1,0 +1,24 @@
+{
+  "name": "paymob-nodejs",
+  "version": "1.0.0",
+  "description": "Paymob integration package to be used with node.js backend ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emadaldin-baybars/paymob-nodejs.git"
+  },
+  "keywords": [
+    "paymob",
+    "payment",
+    "integration"
+  ],
+  "author": "Emadaldin Baybars",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/emadaldin-baybars/paymob-nodejs/issues"
+  },
+  "homepage": "https://github.com/emadaldin-baybars/paymob-nodejs#readme"
+}
