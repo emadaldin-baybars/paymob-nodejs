@@ -1,5 +1,4 @@
 const fs = require('fs')
-const configJson = require("../../paymob-config.json");
 
 module.exports.converter = function (sentence){
     let capitalized = []
