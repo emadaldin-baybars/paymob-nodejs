@@ -5,17 +5,13 @@ function readConfigFile(path= '') {
     const _p = path || "./paymob-config.json";
     console.log('_p', _p)
     fs.readFile(_p , "utf8", (err, jsonString) => {
-        
+        console.log('jsonString', jsonString)
         if (err) {
             console.log("Error reading file from disk:", err);
             return;
         }
-        try {
-            return jsonString;
-        } catch (err) {
-            console.log("Error parsing JSON string:", err);
-            return;
-        }
+        
+        return jsonString
     })
 }
 
