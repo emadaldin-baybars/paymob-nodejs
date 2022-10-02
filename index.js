@@ -1,4 +1,6 @@
-const fs = require('fs')
+const fs = require('fs');
+const axios = require('axios').default;
+
 
 module.exports.converter = function (sentence){
     let capitalized = []
@@ -21,15 +23,15 @@ module.exports.readConfigFile = function (path = '') {
         try {
           const config = JSON.parse(jsonString);
 
-          fetch('https://accept.paymob.com/api/auth/tokens', {
-                method: 'POST',
-                body: JSON.stringify({
-                    "api_key": config.apiKey
-                }),
-                headers: { 'Content-Type': 'application/json' }
-            })
-            .then(res => res.json())
-            .then(json => console.log(json));
+          axios.post('https://accept.paymob.com/api/auth/tokens', {
+            "api_key": config.apiKey
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
 
         } catch (err) {
           console.log("Error parsing JSON string:", err);
