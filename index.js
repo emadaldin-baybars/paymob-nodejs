@@ -8,7 +8,7 @@ function readConfigFile(path= '') {
             return;
         }
         try {
-            return JSON.parse(jsonString);
+            return jsonString;
         } catch (err) {
             console.log("Error parsing JSON string:", err);
             return;
@@ -19,9 +19,10 @@ function readConfigFile(path= '') {
 module.exports.auth = function (path = '') {
     let config = readConfigFile(path);
     console.log('config', config);
-    if(config){
+    if(config != ''){
+        const configParsed = JSON.parse(config);
         axios.post('https://accept.paymob.com/api/auth/tokens', {
-                "api_key": config.apiKey
+                "api_key": configParsed.apiKey
             })
             .then(function (response) {
                 const {token, profile} = response.data;
