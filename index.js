@@ -1,6 +1,7 @@
 const fs = require('fs');
 const axios = require('axios').default;
 
+var token = undefined;
 
 module.exports.converter = function (sentence){
     let capitalized = []
@@ -23,15 +24,21 @@ module.exports.readConfigFile = function (path = '') {
         try {
           const config = JSON.parse(jsonString);
 
-          axios.post('https://accept.paymob.com/api/auth/tokens', {
-            "api_key": config.apiKey
-          })
-          .then(function (response) {
-            console.log('data', response.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          if(! token){
+              axios.post('https://accept.paymob.com/api/auth/tokens', {
+                "api_key": config.apiKey
+              })
+              .then(function (response) {
+                console.log('data', response.data);
+                token = response.data.token;
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+          } else {
+              console.log('token', token)
+              return token
+          }
 
         } catch (err) {
           console.log("Error parsing JSON string:", err);
