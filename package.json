@@ -1,6 +1,6 @@
 {
   "name": "paymob-nodejs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Paymob integration package to be used with node.js backend ",
   "main": "index.js",
   "scripts": {

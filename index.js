@@ -20,7 +20,8 @@ module.exports.readConfigFile = function (path = '') {
         }
         try {
           const config = JSON.parse(jsonString);
-          console.log("config [api-key] is:", config.apiKey); // => "Customer address is: Infinity Loop Drive"
+          console.log("config [api-key] is:", config.apiKey); 
+          console.log("config [hmac] is:", config.hmac); 
         } catch (err) {
           console.log("Error parsing JSON string:", err);
         }
