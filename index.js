@@ -20,8 +20,17 @@ module.exports.readConfigFile = function (path = '') {
         }
         try {
           const config = JSON.parse(jsonString);
-          console.log("config [api-key] is:", config.apiKey); 
-          console.log("config [hmac] is:", config.hmac); 
+
+          fetch('https://accept.paymob.com/api/auth/tokens', {
+                method: 'POST',
+                body: JSON.stringify({
+                    "api_key": config.apiKey
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(res => res.json())
+            .then(json => console.log(json));
+
         } catch (err) {
           console.log("Error parsing JSON string:", err);
         }
