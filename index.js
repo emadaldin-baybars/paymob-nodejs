@@ -27,7 +27,7 @@ module.exports.readConfigFile = function (path = '') {
             "api_key": config.apiKey
           })
           .then(function (response) {
-            console.log(response);
+            console.log('data', response.data);
           })
           .catch(function (error) {
             console.log(error);
