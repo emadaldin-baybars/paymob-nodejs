@@ -18,6 +18,7 @@ function readConfigFile(path= '') {
 
 module.exports.auth = function (path = '') {
     let config = readConfigFile(path);
+    console.log('config', config);
     if(config){
         axios.post('https://accept.paymob.com/api/auth/tokens', {
                 "api_key": config.apiKey
