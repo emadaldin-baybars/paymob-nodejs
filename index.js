@@ -1,22 +1,24 @@
 const fs = require('fs');
 const axios = require('axios').default;
 
-function readConfigFile(path= '') {
+async function readConfigFile(path= '', _f) {
     const _p = path || "./paymob-config.json";
-    console.log('_p', _p)
     fs.readFile(_p , "utf8", (err, jsonString) => {
-        console.log('jsonString', jsonString)
         if (err) {
             console.log("Error reading file from disk:", err);
-            return;
         }
         
-        return jsonString
+        _f(jsonString);
     })
 }
 
 module.exports.auth = async function (path = '') {
-    const config = await readConfigFile(path);
+    // to read the config file data and get the api key
+    const f = (json) =>{
+        return json;
+    }
+
+    const config = await readConfigFile(path, f);
     console.log('config', config);
     if(config != '' && config != undefined && config != null){
         axios.post('https://accept.paymob.com/api/auth/tokens', {
